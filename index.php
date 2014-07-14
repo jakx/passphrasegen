@@ -8,6 +8,7 @@
     <title>Passphrase Generator</title>
 
 
+    <link rel="icon" href="/Hamster-generator.ico" >
 
 
 
