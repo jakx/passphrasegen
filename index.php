@@ -54,6 +54,8 @@
 	   microAjax("/sendEmail.php", function (res) {
        alert(res);
 }, postDump);
+        document.getElementById('email-form').style.display = 'none';
+        document.getElementById('email-click').style.display = 'block';
 }
 </script>
 
