@@ -1,0 +1,19 @@
+
+.images-top{
+ margin-left: 115px;
+}
+.images-bottom img{
+
+  float: right;
+}
+.images{
+  margin-right: 500px;
+}
+.container{
+  margin: 20px;
+}
+#header-text-content{
+  font-size: 12px;
+  width: 300px;
+  font-weight: bold;
+}
