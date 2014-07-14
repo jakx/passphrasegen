@@ -126,7 +126,7 @@
     <p>
         <label for='subject'>Subject:</label>
         <br>
-        <input type="text" id="subject" value="passphrasegen.com" size="45">
+        <input type="text" id="subject" value="passphrase" size="45">
     </p>
     <p>
         <label for='message'>Message:</label>
