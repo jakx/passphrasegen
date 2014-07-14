@@ -8,7 +8,7 @@
 
   <head>
 
-    <title>Passphrase Generator</title>
+    <title>Passphrase Generator - Generate secure passwords</title>
 
 
 
@@ -35,9 +35,26 @@
       function getWords(){
 	microAjax("/passphrase.php", function (res) {
          document.getElementById("passphrase").innerHTML = res;
+         document.getElementById("message").value= res.replace(/(\r\n|\n|\r)/gm," ").slice(0, -2);
 	});
     }
     getWords();
+
+    function showEmailForm(){
+        document.getElementById('email-form').style.display = 'block';
+        document.getElementById('email-click').style.display = 'none';
+    }
+
+   function sendEmail(){
+        var emailsendto = document.getElementById('emailsendto').value;
+        var subject = document.getElementById('subject').value;
+        var body = document.getElementById('message').value;
+        var proceed = true;
+       var postDump = "sendto=" + emailsendto + "&subject=" + subject + "&body=" + body;
+	   microAjax("/sendEmail.php", function (res) {
+       alert(res);
+}, postDump);
+}
 </script>
 
 
@@ -53,15 +70,15 @@
 
         <nav class="round">
 
+<img src="HamsterWheel-400.png" /> 
           <ul>
 
             <li>
 
-<strong>      Passphrase Generator </strong>
+<center><strong>      Passphrase Generator </strong></center>
 </li>
 
 
-<img src="HamsterWheel-400.png" /> 
 
           </ul>
 
@@ -74,7 +91,9 @@
       <section class="round">
 
         <div>
+<center>
 <input id="generate" type="button" value="Generate Passphrase" onclick="getWords();" />
+</center>
         </div>
 
       </section> 
@@ -90,6 +109,37 @@
         </div>
 
       </section> 
+
+
+      <section class="round">
+
+        <div id="email-click"> <a href="#" onclick="showEmailForm();return false;">Email the passphrase </a></div>
+        <div id="email-form" style="display:none">
+        
+<form method="POST" name="contactform" action="contact-form-handler.php">
+    <p>
+        <label for='email'>Send to:</label>
+        <br>
+        <input type="text" id="emailsendto">
+        <br>
+    </p>
+    <p>
+        <label for='subject'>Subject:</label>
+        <br>
+        <input type="text" id="subject" value="passphrasegen.com" size="45">
+    </p>
+    <p>
+        <label for='message'>Message:</label>
+        <br>
+        <textarea id="message" style="width: 450px; height: 100px;"></textarea>
+    </p>
+    <input type="button" value="Submit" onclick="sendEmail();">
+    <br>
+</form>
+        </div>
+
+      </section> 
+
 
      <footer>
 
