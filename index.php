@@ -3,7 +3,6 @@
 <html>
 <!-- PHP -->
 
-
     <link rel="icon" href="/Hamster-generator.ico" sizes="80x36" itemprop="image" >
 
   <head>

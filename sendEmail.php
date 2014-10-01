@@ -74,8 +74,8 @@ if($_POST)
         echo "Email sent!";
 
         
-        echo "\r\nData = ";
-        print_r($_POST);
+//        echo "\r\nData = ";
+//        print_r($_POST);
         //die($output);
     }
 }
